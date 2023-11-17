@@ -9,26 +9,23 @@ class ListsController < ApplicationController
   end
 
   def create
-    # @movies = Movie.where(id: params[:list][:movie_ids])
-    list = List.new(params_list)
+    @list = List.new(list_params)
 
-    if  list.save
-      redirect_to lists_path
+    if @list.save
+      redirect_to list_path(@list)
     else
-      render :new, :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
-    # D11FR08
 
-    def show
-      @list = List.find(params[:id])
-      @movies = @list.movies
-    end
+  def show
+    @list = List.find(params[:id])
+    @movies = @list.movies
+  end
 
   private
 
-  def params_list
-    params.require(:list).permit(:name)
-    # params.require(:list).permit(:movie_ids)
+  def list_params
+    params.require(:list).permit(:name, movie_ids: [])
   end
 end
