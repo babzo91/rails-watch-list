@@ -8,9 +8,7 @@
     <%= f.input_field :name %>
     </div>
     <% @movies.each do |movie| %>
-    <div>
-      <%= f.check_boxes :movie_ids, Movie.all, :id, :title %>
-    </div>
+      <%# todo %>
     <% end %>
   </div>
   <div class="form-actions">
