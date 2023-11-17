@@ -9,6 +9,11 @@ puts 'Destroying existing data...'
 Movie.destroy_all  # Remplacez YourModel par le nom de votre modèle, par exemple User, Article, etc.
 puts 'Existing data destroyed!'
 
+puts 'Destroying existing data...'
+List.destroy_all  # Remplacez YourModel par le nom de votre modèle, par exemple User, Article, etc.
+puts 'Existing data destroyed!'
+
+
 url = URI("https://tmdb.lewagon.com/movie/top_rated")
 
 http = Net::HTTP.new(url.host, url.port)
